@@ -1,17 +1,16 @@
 #Welcome to Dynamic Data
 
-Week 1 - Introduction to Web (Jan 17th)
+###Week 1 - Introduction to Web (Jan 17th)
 
-Class Overview. 
-•	Introduction to the Web
-•	Git Overview
-•	Basic html/CSS
-•	Building a form
+* Introduction to the Web
+* Git Overview
+* Basic html/CSS
+* Building a form
 
 
 Week 2 - Introduction to Front-End (Jan 24th)
-•	Building Forms
-•	Introduction to Bootstrap
+* Building Forms
+* Introduction to Bootstrap
 
 
 Week 3 – Introduction to Javascript/Node (Jan 31st)
