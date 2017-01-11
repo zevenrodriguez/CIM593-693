@@ -35,30 +35,31 @@
 ###Week 7 - ORM (Feb 28th)
 * Sequelize continued
 
-Week 8 – Creative Outputs/Midterm Workday (Mar 7th)
-•	Chart.js
-•	Google Charts
-•	High Charts
-•	P5.js
+###Week 8 – Creative Outputs/Midterm Workday (Mar 7th)
+* Chart.js
+* Google Charts
+* High Charts
+* P5.js
 
-Week 9 - Spring Break (Mar 14th)
+###Week 9 - Spring Break (Mar 14th)
 
-Week 10 – Midterm (Mar 21st)
+###Week 10 – Midterm (Mar 21st)
 
 
-Week 11 – Uploading (Mar 28th)
-•	Uploading Midterm
-•	Working with data/json
-Week 12 – APIs (Apr 4th)
-•	Using APIs
-•	Twitter
-•	Flickr
-•	Rita
+###Week 11 – Uploading (Mar 28th)
+* Uploading Midterm
+* Working with data/json
 
-Week 13 – Websockets (Apr 11th)
+###Week 12 – APIs (Apr 4th)
+* Using APIs
+* Twitter
+* Flickr
+* Rita
+
+###Week 13 – Websockets (Apr 11th)
 	
 
-Week 14 – Final Workshop (Apr 18th)
+###Week 14 – Final Workshop (Apr 18th)
 
 
-Week 15 - Final Workshop (Apr 25th)
+###Week 15 - Final Workshop (Apr 25th)
