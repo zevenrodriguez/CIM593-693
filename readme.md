@@ -1,6 +1,6 @@
 #Welcome to Dynamic Data
 
-[###Week 1 - Introduction to Web (Jan 17th)](https://github.com/zevenrodriguez/CIM593-693/tree/master/week1)
+###[Week 1 - Introduction to Web (Jan 17th)](https://github.com/zevenrodriguez/CIM593-693/tree/master/week1)
 
 * Introduction to the Web
 * Git Overview
