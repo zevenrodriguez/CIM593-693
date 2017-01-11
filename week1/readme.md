@@ -16,8 +16,8 @@
 
 Every file and directory has nine permissions associated with it Files and directories have three types of permissions (or none): 
 
-r (read) w (write) x (execute) - (no permission) 
+>r (read) w (write) x (execute) - (no permission) 
 
 The above permissions occur for each of the following classes or users: 
 
-u (user/owner) g (group) o (other/world)
+>u (user/owner) g (group) o (other/world)
