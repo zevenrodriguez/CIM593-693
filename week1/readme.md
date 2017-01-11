@@ -30,12 +30,13 @@ _u (user/owner) g (group) o (other/world)_
 
 Git is a free and open source version control system/software. Once you initialize git in a directory, it tracks changes in your code. This is called initializing a repository.
 
-Their are 2 ways you can use git:
+Their are severial ways you can use git:
 
 * command line
 * gui interface / Github Desktop for Mac/PC
  * Note: When installing Github Desktop make sure you install command line tools.
  * Under the programs preferences you will need to add your github credentials.
+* [Brackets Git](https://github.com/zaggino/brackets-git) - Install as a plugin on brackets
 
 ###WHAT IS GITHUB?
 
