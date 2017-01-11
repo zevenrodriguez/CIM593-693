@@ -1,5 +1,7 @@
 #Welcome to Dynamic Data
 
+##[Syllabus](https://github.com/zevenrodriguez/CIM593-693/blob/master/files/CIM593-693-S17-Dynamic%20Data.pdf)
+
 ###[Week 1 - Introduction to Web (Jan 17th)](https://github.com/zevenrodriguez/CIM593-693/tree/master/week1)
 
 * Introduction to the Web
