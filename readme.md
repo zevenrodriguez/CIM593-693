@@ -8,32 +8,32 @@
 * Building a form
 
 
-Week 2 - Introduction to Front-End (Jan 24th)
+###Week 2 - Introduction to Front-End (Jan 24th)
 * Building Forms
 * Introduction to Bootstrap
 
 
-Week 3 – Introduction to Javascript/Node (Jan 31st)
-•	Basic Javascript – DOM Manipulation
-•	Installing Node
-•	Setting up Work Environment
+###Week 3 – Introduction to Javascript/Node (Jan 31st)
+* Basic Javascript – DOM Manipulation
+* Installing Node
+* Setting up Work Environment
 
 
-Week 4 - Routing (Feb 7th)
-•	Hapi.js
-•	Routing
+###Week 4 - Routing (Feb 7th)
+* Hapi.js
+* Routing
 
 
-Week 5 – Submitting Forms (Feb 14th)
-•	Submit Form
-•	Retrieving Responses
-•	Intro to Ajax
+###Week 5 – Submitting Forms (Feb 14th)
+* Submit Form
+* Retrieving Responses
+* Intro to Ajax
 
-Week 6 - ORM (Feb 21st)
-•	Sequelize
+###Week 6 - ORM (Feb 21st)
+* Sequelize
 
-Week 7 - ORM (Feb 28th)
-•	Sequelize continued
+###Week 7 - ORM (Feb 28th)
+* Sequelize continued
 
 Week 8 – Creative Outputs/Midterm Workday (Mar 7th)
 •	Chart.js
