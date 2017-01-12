@@ -89,6 +89,10 @@ If configured correctly, will upload your changes to github.
 
 ####[Understanding Response Headers](http://learn.onemonth.com/understanding-http-basics)
 
+In UNIX
+
+Command >> telnet google.com 80
+
 ####[Status Codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
 
 #####Typical Status Codes
