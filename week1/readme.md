@@ -1,5 +1,7 @@
 #Week 1 Notes
 
+##About the Internet
+
 ##Unix
 
 * Common commands
@@ -79,4 +81,27 @@ This will save your changes
 ####git push origin master
 
 If configured correctly, will upload your changes to github.
- 
+
+
+##Intro to Forms
+
+####[Form Input Types](http://www.w3schools.com/html/html_form_input_types.asp)
+
+####[Understanding Response Headers](http://learn.onemonth.com/understanding-http-basics)
+
+####[Status Codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
+
+#####Typical Status Codes
+* 200 - OK
+* 302 - Found
+ * URL redirection
+* 400 - Bad Request
+* 401 - Unauthorized
+* 403 - Forbidden
+* 404 - Not Found
+* 500 - Internal Server Error
+* 502 - Bad Gateway
+
+
+Developer Tools
+* Network > Headers

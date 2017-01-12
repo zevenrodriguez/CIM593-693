@@ -1,0 +1,15 @@
+body{
+    background-color: darkturquoise;
+    font-family: sans-serif;
+}
+
+#mainForm{
+    background-color: white;
+    width: 270px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#cars{
+    width: 100%;
+}
