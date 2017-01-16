@@ -1,0 +1,23 @@
+/*Tablet Version*/
+
+
+/*Import styles from desktop.css*/
+
+@import "desktop.css";
+
+#col1 {
+    width: 100%;
+    padding: 10px;
+}
+
+#col2 {
+    float: left;
+    width: 45%;
+    padding: 10px;
+}
+
+#col3 {
+    float: left;
+    width: 45%;
+    padding: 10px;
+}
