@@ -1,8 +1,21 @@
 #Week 1 Notes
 
+##About the class
+
+[UFO Sightings](https://www.behance.net/gallery/45901911/UFO-Sightings-in-last-10-yearsData-Vizualisation)
+
+![](http://i.imgur.com/Wh2eWOp.png)
+
+![](https://timothyks.files.wordpress.com/2016/12/boarderfixed-1900-2016-age-deaths-births.png?w=1684)
+
+[Garden of Virtual Kinship](http://howlinwolves.com/projects/gardenofvirtualkinship.html)
+
+[Connections](http://howlinwolves.com/projects/connections.html)
+
+
 ##[About the Internet](https://github.com/zevenrodriguez/CIM593-693/blob/master/files/Intro%20to%20Web%20-%20Dynamic%20Data.pdf)
 
-###[HTML/CSS refresher]()
+###[HTML/CSS refresher](https://github.com/zevenrodriguez/CIM593-693/tree/master/week1/examples/wolfsite)
 
 ##Intro to Forms
 
@@ -30,10 +43,6 @@ Command >> telnet google.com 80
 
 Developer Tools
 * Network > Headers
-
-https://www.behance.net/gallery/45901911/UFO-Sightings-in-last-10-yearsData-Vizualisation
-
-
 
 
 ##Unix
