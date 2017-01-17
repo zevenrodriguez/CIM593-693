@@ -129,35 +129,3 @@ This will save your changes
 
 If configured correctly, will upload your changes to github.
 
-
-<<<<<<< HEAD
-##Intro to Forms
-
-####[Form Input Types](http://www.w3schools.com/html/html_form_input_types.asp)
-
-####[Understanding Response Headers](http://learn.onemonth.com/understanding-http-basics)
-
-In UNIX
-
-Command >> telnet google.com 80
-
-####[Status Codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
-
-#####Typical Status Codes
-* 200 - OK
-* 302 - Found
- * URL redirection
-* 400 - Bad Request
-* 401 - Unauthorized
-* 403 - Forbidden
-* 404 - Not Found
-* 500 - Internal Server Error
-* 502 - Bad Gateway
-
-
-Developer Tools
-* Network > Headers
-
-https://www.behance.net/gallery/45901911/UFO-Sightings-in-last-10-yearsData-Vizualisation
-=======
->>>>>>> origin/master
