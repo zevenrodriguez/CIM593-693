@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+    <title>Monster Mash - Create Your Monster!</title>
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+</head>
+
+<body>
+    <div id="mainForm">
+        <div id="logo"></div>
+
+        <p>Monster Mash is a text adventure game, where you create a monster and create your ideal monster lair.</p>
+
+        <h3>Let's Create Your Monster!</h3>
+        <form action="" method="post">
+
+            <label for="monsterName">Monster Name:</label>
+            <input type="text" name="monsterName" id="monsterName">
+
+            <br>
+            <br>
+
+            <label>Gender:</label>
+            <br>
+            <input type="radio" name="gender" value="male" checked id="male">
+            <label for="male">Male</label>
+            <br>
+            <input type="radio" name="gender" value="female" id="female">
+            <label for="female">female</label>
+
+            <br>
+            <input type="radio" name="gender" value="other" id="other">
+            <label for="other">Other</label>
+
+
+            <br>
+            <br>
+
+            <label for="quarters">Living Quarters: </label>
+            <select name="quarters" id="quarters">
+                <option value="cave">Cave</option>
+                <option value="dungeon">Dungeon</option>
+                <option value="forest">Forest</option>
+                <option value="closet">Closet</option>
+            </select>
+
+            <br>
+            <br>
+
+            <label for="message">Answer Machine Message</label>
+            <br>
+            <textarea name="message" rows="10" cols="30" id="message">I am in the middle of eating...
+            </textarea>
+
+            <br>
+            <br>
+
+            <input type="checkbox" name="vehicle1" value="horse"> I have a horse
+            <br>
+            <input type="checkbox" name="vehicle2" value="Car" disabled> I have a magic carpet
+
+            <br>
+            <br>
+
+            <label for="color">Favorite T-shirt Color </label>
+
+            <input type="color" name="favcolor" value="#ff0000" id="color">
+
+            <br>
+            <br>
+            <label for="range">Weight 0-1000</label>
+
+            <input type="range" name="points" min="0" max="1000" id="range">
+
+            <br>
+            <br>
+
+
+            <label for="email"> Choose some photos to adorn your lair:</label>
+            <br>
+            <input type="file" name="img" multiple>
+
+            <br>
+            <br>
+
+            <label for="email">Login E-mail:</label>
+            <input type="email" name="email" id="email">
+
+            <br>
+            <br>
+
+            <label for="pass">Login Password:</label>
+            <input type="password" name="pass">
+
+            <br>
+            <br>
+
+            <input type="submit" value="Submit">
+
+        </form>
+    </div>
+</body>
+
+</html>

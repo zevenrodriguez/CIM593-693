@@ -10,6 +10,18 @@ body{
     padding: 20px;
 }
 
+#quarters{
+    width: 100%;
+}
+
 #cars{
     width: 100%;
+}
+
+
+#logo{
+    background-image: url("../images/monsterMash.png");
+    width: 270px;
+    height: 95px;
+    margin-bottom: 10px;
 }
