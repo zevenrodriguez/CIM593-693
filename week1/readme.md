@@ -1,6 +1,54 @@
 #Week 1 Notes
 
-##About the Internet
+##About the class
+
+[UFO Sightings](https://www.behance.net/gallery/45901911/UFO-Sightings-in-last-10-yearsData-Vizualisation)
+
+![](http://i.imgur.com/Wh2eWOp.png)
+
+![](https://timothyks.files.wordpress.com/2016/12/boarderfixed-1900-2016-age-deaths-births.png?w=1684)
+
+###[Clickhole Text Adventure](https://www.wired.com/2015/02/clickhole-skullshadow-island/)
+
+###[Garden of Virtual Kinship](http://howlinwolves.com/projects/gardenofvirtualkinship.html)
+
+###[Connections](http://howlinwolves.com/projects/connections.html)
+
+
+
+##[About the Internet](https://github.com/zevenrodriguez/CIM593-693/blob/master/files/Intro%20to%20Web%20-%20Dynamic%20Data.pdf)
+
+###[HTML/CSS refresher](https://github.com/zevenrodriguez/CIM593-693/tree/master/week1/examples/ResponsiveHtmlCss)
+
+##Intro to Forms
+
+####[Form Input Types](http://www.w3schools.com/html/html_form_input_types.asp)
+
+####[Form Example](https://github.com/zevenrodriguez/CIM593-693/tree/master/week1/examples/form)
+
+####[Understanding Response Headers](http://learn.onemonth.com/understanding-http-basics)
+
+In UNIX
+
+Command >> telnet google.com 80
+
+####[Status Codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
+
+#####Typical Status Codes
+* 200 - OK
+* 302 - Found
+ * URL redirection
+* 400 - Bad Request
+* 401 - Unauthorized
+* 403 - Forbidden
+* 404 - Not Found
+* 500 - Internal Server Error
+* 502 - Bad Gateway
+
+
+Developer Tools
+* Network > Headers
+
 
 ##Unix
 
@@ -54,7 +102,6 @@ Also see https://help.github.com/articles/create-a-repo/
 
 Gists are part of github. They are a quick way to share code with out having to create a repository. They are hosted on github but are not local to your computer. Gists are useful for quickly sending code when something is not working or sharing/working on snippets of code
 
- 
 
 ###Common Git Terminal Commands
 
@@ -83,6 +130,7 @@ This will save your changes
 If configured correctly, will upload your changes to github.
 
 
+<<<<<<< HEAD
 ##Intro to Forms
 
 ####[Form Input Types](http://www.w3schools.com/html/html_form_input_types.asp)
@@ -111,3 +159,5 @@ Developer Tools
 * Network > Headers
 
 https://www.behance.net/gallery/45901911/UFO-Sightings-in-last-10-yearsData-Vizualisation
+=======
+>>>>>>> origin/master
