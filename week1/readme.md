@@ -8,19 +8,35 @@
 
 ![](https://timothyks.files.wordpress.com/2016/12/boarderfixed-1900-2016-age-deaths-births.png?w=1684)
 
+###[Lego Bricks Data](https://docs.google.com/spreadsheets/d/1oyjE-JTTewc6FvENhaMOIJU9e0ikdhgIXtAOaB0oTAo/edit#gid=1309315636)
+
+###[Girls in book titles](https://fivethirtyeight.com/features/the-gone-girl-with-the-dragon-tattoo-on-the-train/)
+
+###[Tragic Data Behind Selfie Fatalities](https://priceonomics.com/the-tragic-data-behind-selfie-fatalities/)
+
+###[Words in MLK's "I have a dream" speech](http://www.kenflerlage.com/2017/01/the-words-of-martin-luther-kings-i-have.html)
+
+
+
 ###[Clickhole Text Adventure](https://www.wired.com/2015/02/clickhole-skullshadow-island/)
+
+
 
 ###[Garden of Virtual Kinship](http://howlinwolves.com/projects/gardenofvirtualkinship.html)
 
 ###[Connections](http://howlinwolves.com/projects/connections.html)
 
+###[Data Sub-Reddit](https://www.reddit.com/r/dataisbeautiful/)
 
 
-##[About the Internet](https://github.com/zevenrodriguez/CIM593-693/blob/master/files/Intro%20to%20Web%20-%20Dynamic%20Data.pdf)
+
+#[About the Internet](https://github.com/zevenrodriguez/CIM593-693/blob/master/files/Intro%20to%20Web%20-%20Dynamic%20Data.pdf)
+
+
+
+##Intro to HTML/Forms and CSS
 
 ###[HTML/CSS refresher](https://github.com/zevenrodriguez/CIM593-693/tree/master/week1/examples/ResponsiveHtmlCss)
-
-##Intro to Forms
 
 ####[Form Input Types](http://www.w3schools.com/html/html_form_input_types.asp)
 
@@ -28,9 +44,15 @@
 
 ####[Understanding Response Headers](http://learn.onemonth.com/understanding-http-basics)
 
-In UNIX
 
-Command >> telnet google.com 80
+
+#####In UNIX
+
+Commands
+* telnet google.com 80
+* Then type GET / HTTP/1.1
+* Examin
+* Press ESC and Enter to exit
 
 ####[Status Codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
 
@@ -50,7 +72,7 @@ Developer Tools
 * Network > Headers
 
 
-##Unix
+##Basic Unix Commands 
 
 * Common commands
  * ls - List directory items
@@ -128,4 +150,13 @@ This will save your changes
 ####git push origin master
 
 If configured correctly, will upload your changes to github.
+
+#Homework
+
+* Create a Repository
+ * Name it: Dynamic Data
+* Create a week1 folder
+* Make creative form
+
+
 
