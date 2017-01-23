@@ -1,53 +1,47 @@
-document.getElementById("demo").innerHTML = "Hello JavaScript";
-Try it Yourself »
+document.getElementById("box1").style.fontSize = "25px";
 
+document.getElementById("box2").innerHTML = "Hello";
 
-document.getElementById("demo").style.fontSize = "25px";
-Try it Yourself »
+var box3 = document.getElementById("box3");
+box3.style.display = "none";
 
+changeBackgroundColor("box4", "purple");
 
-document.getElementById("demo").style.display = "none";
-Try it Yourself »
+addElement();
 
-
-document.getElementById("demo").style.display = "block";
-Try it Yourself »
-
-
-<script>
-function myFunction() {
-    document.getElementById("demo").innerHTML = "Paragraph changed.";
-}
-</script>
-</head>
-
-<body>
-
-<h1>A Web Page</h1>
-<p id="demo">A Paragraph</p>
-<button type="button" onclick="myFunction()">Try it</button>
-
-document.getElementById()
-document.getElementsByClassName()
-element.innerHTML
-element.style
-document.getElementById("myAnchor").setAttribute("href", "http://www.w3schools.com");
-
-<button onclick="myFunction()">Click me</button>
-
-document.getElementById("demo").onclick = function() {myFunction()};
-
-function myFunction() {
-    document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
+function changeBackgroundColor(id, color){
+    var currentId = document.getElementById(id);
+    currentId.style.backgroundColor = color;
 }
 
-<button onclick="getElementById('demo').innerHTML=Date()">What is the time?</button>
+function changeText(){
+    var h1List = document.getElementsByTagName("H1");
+    console.log(h1List.length);
+    h1List[0].innerHTML = "Goodbye";
+}
 
-<p id="demo"></p>
+function mDown(obj) {
+    obj.style.backgroundColor = "turquoise";
+    obj.innerHTML = "Release Me";
+}
 
-object.onmouseenter = function(){myScript};
+function mUp(obj) {
+    obj.style.backgroundColor= "red";
+    obj.innerHTML="Thank You";
+}
 
-object.onmouseleave = function(){myScript};
+function mOver(obj) {
+    obj.innerHTML = "Over";
+}
 
+function mOut(obj) {
+    obj.innerHTML="And Out";
+}
+
+
+function addElement(){
+    var parent = document.createElement("div");
+    document.body.appendChild(parent);
+}
 
 
