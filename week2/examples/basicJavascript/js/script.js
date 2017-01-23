@@ -41,6 +41,10 @@ function mOut(obj) {
 
 function addElement(){
     var parent = document.createElement("div");
+    parent.id = "box7";
+    parent.classList.add("boxes");
+    parent.innerHTML = "Box 7";
+    parent.style.backgroundColor = "orange";
     document.body.appendChild(parent);
 }
 
