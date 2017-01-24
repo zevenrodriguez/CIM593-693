@@ -1,3 +1,26 @@
+var num = 100;
+var num1 = 1;
+var word = "hello";
+var word1 = "goodbye";
+
+console.log(num);
+console.log(num + num1);
+console.log(word + word1);
+//Single line comment
+//This will not work, you cannot subtract 2 words
+//console.log(word - word1);
+
+/*
+This
+is
+a
+long
+comment
+*/
+
+console.log("num: " + num);
+console.log(word + " " + word1);
+
 document.getElementById("box1").style.fontSize = "25px";
 
 document.getElementById("box2").innerHTML = "Hello";
@@ -9,12 +32,12 @@ changeBackgroundColor("box4", "purple");
 
 addElement();
 
-function changeBackgroundColor(id, color){
+function changeBackgroundColor(id, color) {
     var currentId = document.getElementById(id);
     currentId.style.backgroundColor = color;
 }
 
-function changeText(){
+function changeText() {
     var h1List = document.getElementsByTagName("H1");
     console.log(h1List.length);
     h1List[0].innerHTML = "Goodbye";
@@ -26,8 +49,8 @@ function mDown(obj) {
 }
 
 function mUp(obj) {
-    obj.style.backgroundColor= "red";
-    obj.innerHTML="Thank You";
+    obj.style.backgroundColor = "red";
+    obj.innerHTML = "Thank You";
 }
 
 function mOver(obj) {
@@ -35,11 +58,11 @@ function mOver(obj) {
 }
 
 function mOut(obj) {
-    obj.innerHTML="And Out";
+    obj.innerHTML = "And Out";
 }
 
 
-function addElement(){
+function addElement() {
     var parent = document.createElement("div");
     parent.id = "box7";
     parent.classList.add("boxes");
@@ -47,5 +70,3 @@ function addElement(){
     parent.style.backgroundColor = "orange";
     document.body.appendChild(parent);
 }
-
-
