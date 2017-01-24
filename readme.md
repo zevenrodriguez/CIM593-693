@@ -10,7 +10,7 @@
 * Building a form
 
 
-###Week 2 - Introduction to Front-End (Jan 24th)
+###[Week 2 - Introduction to Front-End (Jan 24th)](https://github.com/zevenrodriguez/CIM593-693/tree/master/week2)
 * Building Forms
 * Introduction to Bootstrap
 
