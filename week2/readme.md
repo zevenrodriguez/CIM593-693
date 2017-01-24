@@ -23,10 +23,10 @@
 * Create a week2 folder
  * Continue with your form
  * Add bootstrap
-  * Style
-  * Make responsive
+   * Style
+   * Make responsive
  * Javascript
-  * Practice your javascript - Create a page or update your form to use the following:
-   * Write javascript to change 3 elements' css styles
-   * Use/create 3 functions
-   * Use 2 mouse events
+   * Practice your javascript - Create a page or update your form to use the following:
+     * Write javascript to change 3 elements' css styles
+     * Use/create 3 functions
+     * Use 2 mouse events
