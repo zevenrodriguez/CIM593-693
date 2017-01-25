@@ -1,3 +1,6 @@
+##[Finish javascript](https://github.com/zevenrodriguez/CIM593-693/tree/master/week2/examples/basicJavascript)
+
+
 #Getting started with Node
 
 ##Basic Linux Commands
@@ -59,15 +62,20 @@ _u (user/owner) g (group) o (other/world)_
 
 [Install NVM](https://github.com/creationix/nvm)
 
-Install script 
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+Install script: ```curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash ```
 
+####To start a node project
 
-To start a node project
+* Open terminal
+* cd to the desired directory
+* Create a directory >> ```mkdir project-name```
+* type >> ```npm init```
+ * Enter options accordingly
+* create an app.js or index.js
+* Paste the code below and save
+* To run your code type node app.js or node index.js
 
-npm init
-
-Basic node code
+#####Basic node code
 
 ```
 const http = require('http');
@@ -86,8 +94,7 @@ server.listen(port, hostname, () => {
 });
 ```
 
-Save application as index.js
 
-To run code in terminal type node app.js
+
 
 
