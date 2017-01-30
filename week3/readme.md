@@ -56,7 +56,7 @@ The above permissions occur for each of the following classes or users:
 
 _u (user/owner) g (group) o (other/world)_
 
-#What is node
+#What is Node
 
 Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. The Node.js package ecosystem, npm, is the largest ecosystem of open source libraries in the world.
 
@@ -91,6 +91,18 @@ By typing ```node```
 * To run your code type node app.js or node index.js
 * Then open your web browser and type ```http://localhost:3000/```
 * To exit your code press ctrl - c
+
+###Using Strict
+
+"use strict"
+
+As an example, in normal JavaScript, mistyping a variable name creates a new global variable. In strict mode, this will throw an error, making it impossible to accidentally create a global variable.
+
+In normal JavaScript, a developer will not receive any error feedback assigning values to non-writable properties.
+
+In strict mode, any assignment to a non-writable property, a getter-only property, a non-existing property, a non-existing variable, or a non-existing object, will throw an error.
+
+*From w3schools*
 
 #####Basic node code
 
@@ -148,7 +160,9 @@ npm install --save blipp
 
 To your app add at the top:
 
+```
 const Blipp = require('blipp');
+```
 
 And wrap the server.register around server.start
 
@@ -164,6 +178,29 @@ server.register([Blipp], (err) => {
     });
 });
 ```
+
+##Static Files
+
+If you need to serve static files like html documents, images, and other assets you need to use a module called [inert](https://github.com/hapijs/inert). Inert allows you to set a folder on your server to hold your static content. In your project create a public folder that will contain these assets.
+
+npm install --save inert
+
+
+
+
+##Views
+
+
+
+npm install --save vision
+npm install --save handlebars
+
+
+###[Handlebars](http://handlebarsjs.com/installation.html)
+
+Handlesbars is a template engine. It allows you to inject variables into your html documents.
+
+
 
 
 

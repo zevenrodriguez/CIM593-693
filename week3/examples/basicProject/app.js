@@ -2,6 +2,9 @@
 
 const Hapi = require('hapi');
 const Blipp = require('blipp');
+const Vision = require('vision');
+const Handlebars = require('handlebars');
+const Path = require('Path')
 
 const server = new Hapi.Server();
 server.connection({
@@ -35,13 +38,12 @@ server.route({
     }
 });
 
-server.register([Blipp], (err) => {
-    server.start((err) => {
+server.register([Blipp, Vision], (err) => {});
+server.start((err) => {
 
-        if (err) {
-            throw err;
-        }
-        console.log(`Server running at: ${server.info.uri}`);
+    if (err) {
+        throw err;
+    }
+    console.log(`Server running at: ${server.info.uri}`);
 
-    });
 });
