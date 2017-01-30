@@ -56,13 +56,28 @@ The above permissions occur for each of the following classes or users:
 
 _u (user/owner) g (group) o (other/world)_
 
+#What is node
 
+Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. The Node.js package ecosystem, npm, is the largest ecosystem of open source libraries in the world.
+
+Most importantly node allows you to run javascript outside of the browser. Node.js acts as a library that interprets javascripts and allows to write scripts that can create servers and interface with OS systems.
 
 ## Installing Node
 
 [Install NVM](https://github.com/creationix/nvm)
 
+NVM is a software that lets you to easily
+
 Install script: ```curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash ```
+
+In terminal type >> ```nvm --version```
+
+Then type >> ```nvm install stable```
+
+Then type >> ```node -v``` If installed correctly, it should display your current node version 7.4.0
+
+By typing ```node```
+
 
 ####To start a node project
 
@@ -74,6 +89,8 @@ Install script: ```curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.
 * create an app.js or index.js
 * Paste the code below and save
 * To run your code type node app.js or node index.js
+* Then open your web browser and type ```http://localhost:3000/```
+* To exit your code press ctrl - c
 
 #####Basic node code
 
@@ -93,6 +110,71 @@ server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
 ```
+
+##NPM
+
+Node.js comes with a package manager and installer called npm. To install node packages/software type ```npm install <name of package>``` There are 2 main versions to install a package:
+
+* npm install --save <name of package>
+ * This method install the package locally to the project you are working with.
+ * Most of the time you will use this method.
+ * It also adds the package to the package.json file.
+ *
+* npm install -g <name of package>
+ * Installs the package globally
+ * You have to manually add the package to the package.json file
+
+ Using the --save method ensures that your application is using the version of the package that consistenly works with your application
+
+ You should add node_modules to your gitignore
+
+####Getting started with Hapi.js
+
+Hapi.js is a framework that contains the tools that allows to interface with server-side applications. At its core it allows to create routes and process server/http parameters.
+
+[Hapi.js](https://hapijs.com/)
+
+[Getting Started](https://hapijs.com/tutorials/getting-started?lang=en_US)
+
+* Create a new directory
+* npm init
+* npm install --save hapi
+
+[Basic Hapi Example](https://github.com/zevenrodriguez/CIM593-693/tree/master/week3/examples/basicHapi)
+
+[Blipp](https://www.npmjs.com/package/blipp) is module that allows you view your applications possible routes.
+
+npm install --save blipp
+
+To your app add at the top:
+
+const Blipp = require('blipp');
+
+And wrap the server.register around server.start
+
+```
+server.register([Blipp], (err) => {
+    server.start((err) => {
+
+        if (err) {
+            throw err;
+        }
+        console.log(`Server running at: ${server.info.uri}`);
+
+    });
+});
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
 
