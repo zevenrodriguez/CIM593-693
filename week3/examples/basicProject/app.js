@@ -3,14 +3,25 @@
 const Hapi = require('hapi');
 const Blipp = require('blipp');
 const Vision = require('vision');
+const Inert = require('inert');
+const Path = require('Path');
 const Handlebars = require('handlebars');
-const Path = require('Path')
 
-const server = new Hapi.Server();
-server.connection({
-    port: 3000,
-    host: 'localhost'
+const server = new Hapi.Server({
+    connections: {
+        routes: {
+            files: {
+                relativeTo: Path.join(__dirname, 'public')
+            }
+        }
+    }
 });
+
+server.connection({
+    port: 3000
+});
+
+server.register([Blipp, Inert], () => {});
 
 server.route({
     method: 'GET',
@@ -20,25 +31,7 @@ server.route({
     }
 });
 
-server.route({
-    method: 'GET',
-    path: '/{name}',
-    handler: function (request, reply) {
-        //console.log(request);
-        reply('Hello, ' + encodeURIComponent(request.params.name) + '!');
-    }
-});
 
-server.route({
-    method: 'GET',
-    path: '/{name}/{lastname}',
-    handler: function (request, reply) {
-        //console.log(request);
-        reply('Hello, ' + encodeURIComponent(request.params.name) + " " + encodeURIComponent(request.params.lastname) + '!');
-    }
-});
-
-server.register([Blipp, Vision], (err) => {});
 server.start((err) => {
 
     if (err) {

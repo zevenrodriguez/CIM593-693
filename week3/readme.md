@@ -186,11 +186,7 @@ If you need to serve static files like html documents, images, and other assets 
 npm install --save inert
 
 
-
-
 ##Views
-
-
 
 npm install --save vision
 npm install --save handlebars
@@ -199,21 +195,4 @@ npm install --save handlebars
 ###[Handlebars](http://handlebarsjs.com/installation.html)
 
 Handlesbars is a template engine. It allows you to inject variables into your html documents.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
