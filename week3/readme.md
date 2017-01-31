@@ -196,3 +196,5 @@ npm install --save handlebars
 
 Handlesbars is a template engine. It allows you to inject variables into your html documents.
 
+
+http://jaskokoyn.com/2014/07/28/views-node-js-tutorial-beginners/
