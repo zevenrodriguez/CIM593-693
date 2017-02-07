@@ -8,7 +8,7 @@ const Path = require('path');
 const Handlebars = require('handlebars');
 
 const server = new Hapi.Server({
-    connections: {
+     connections: {
         routes: {
             files: {
                 relativeTo: Path.join(__dirname, 'public')
@@ -35,17 +35,12 @@ server.views({
 });
 
 
-
 server.route({
     method: 'GET',
     path: '/',
     handler: {
         view: {
-            template: 'index',
-            context: {
-                title: 'Phil at the Park',
-                message: 'On a Spring Morning, Phil the Dino went to the park. Walking, he was startled by a ....'
-            }
+            template: 'index'
         }
     }
 });
@@ -55,7 +50,7 @@ server.route({
     path: '/{param*}',
     handler: {
         directory: {
-            path: '.',
+            path: './',
             listing: false,
             index: false
         }
@@ -63,18 +58,23 @@ server.route({
 });
 
 server.route({
-    method: 'GET',
-    path: '/page2/{played*}',
+
+
+    method: 'POST',
+    path: '/form',
     handler: function (request, reply) {
+        console.log(request.payload.firstname);
+//         var played = encodeURIComponent(request.params.played);
+//        var message = "at the " + played ;
+//        reply.view('page2', {
+//            title: "Phil's Adventure",
+//            message: message,
+//            pic: played
+//
+//        });
+}
 
-        reply.view('page2', {
-            title: 'Phil at the Park',
-            message: encodeURIComponent(request.params.played)
-        });
-    }
 });
-
-
 
 server.start((err) => {
 

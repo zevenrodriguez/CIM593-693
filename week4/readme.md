@@ -59,8 +59,6 @@ Passing a variables
 {{variable}}
 
 
-
-
 http://jaskokoyn.com/category/programming/javascript/nodejs/
 
 
