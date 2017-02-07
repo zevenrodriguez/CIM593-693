@@ -8,7 +8,7 @@ const Path = require('path');
 const Handlebars = require('handlebars');
 
 const server = new Hapi.Server({
-     connections: {
+    connections: {
         routes: {
             files: {
                 relativeTo: Path.join(__dirname, 'public')
@@ -64,15 +64,11 @@ server.route({
     path: '/form',
     handler: function (request, reply) {
         console.log(request.payload.firstname);
-//         var played = encodeURIComponent(request.params.played);
-//        var message = "at the " + played ;
-//        reply.view('page2', {
-//            title: "Phil's Adventure",
-//            message: message,
-//            pic: played
-//
-//        });
-}
+        var firstname = encodeURIComponent(request.payload.firstname);
+        reply.view('formresponse', {
+            firstname: firstname,
+        });
+    }
 
 });
 
