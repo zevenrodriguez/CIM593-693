@@ -85,7 +85,6 @@ server.route({
                 title: "Phil's Adventure",
                 message: 'On a Spring Morning, Phil the Dino went to the park. Walking, he was startled by a ....',
                 nav: [
-
                     {
                         url: "/page2/squirrel",
                         title: "squirrel"
@@ -112,7 +111,7 @@ server.route({
     handler: function (request, reply) {
 
         var played = encodeURIComponent(request.params.played);
-        var message = "with the " + played ;
+        var message = "with the " + played;
 
 
         reply.view('page2', {
@@ -120,7 +119,6 @@ server.route({
             message: message,
             pic: played,
             nav: [
-
                     {
                         url: "/page3/park",
                         title: "park"
@@ -152,6 +150,21 @@ server.route({
             pic: played
 
         });
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/basicHandler',
+    handler: {
+        view:{
+            template: 'basic',
+            context: {
+               title: "Basic Handler",
+                message: "More information"
+            }
+
+        }
     }
 });
 
