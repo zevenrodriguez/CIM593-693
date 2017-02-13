@@ -9,6 +9,9 @@ const Handlebars = require('handlebars');
 
 const fs = require("fs");
 
+const Sequelize = require('sequelize');
+
+
 
 const server = new Hapi.Server({
     connections: {
@@ -23,6 +26,32 @@ const server = new Hapi.Server({
 server.connection({
     port: 3000
 });
+
+
+var sequelize = new Sequelize('db', 'username', 'password', {
+    host: 'localhost',
+    dialect: 'sqlite',
+
+    pool: {
+        max: 5,
+        min: 0,
+        idle: 10000
+    },
+
+    // SQLite only
+    storage: 'db.sqlite'
+});
+
+
+var User = sequelize.define('user', {
+    firstName: {
+        type: Sequelize.STRING
+    },
+    lastName: {
+        type: Sequelize.STRING
+    }
+});
+
 
 server.register([Blipp, Inert, Vision], () => {});
 
@@ -75,83 +104,80 @@ server.route({
     }
 });
 
+
 server.route({
-
-    method: 'POST',
-    path: '/formJSON',
+    method: 'GET',
+    path: '/createDB',
     handler: function (request, reply) {
-        var jsonForm = JSON.stringify(request.payload);
-        console.log(jsonForm);
-        reply(jsonForm);
+        // force: true will drop the table if it already exists
+        User.sync({
+            force: true
+        }).then(function () {
+            // Table created
+            return User.create({
+                firstName: 'John',
+                lastName: 'Hancock'
+            });
+        });
+        reply("saved")
     }
-
-
 });
 
 server.route({
     method: 'GET',
-    path: '/savefile',
-    handler: {
-        view: {
-            template: 'savefile'
-        }
-    }
-
-});
-
-
-server.route({
-
-    method: 'POST',
-    path: '/savefile',
+    path: '/addDB/{first}/{last}',
     handler: function (request, reply) {
 
-        var jsonForm = JSON.stringify(request.payload);
-        console.log(jsonForm);
-
-        console.log("Going to write into existing file");
-
-        fs.writeFile('savedata.txt', jsonForm, function (err) {
-            if (err) {
-                return console.error(err);
-            }
-
-            console.log("Data written successfully!");
-            console.log("Let's read newly written data");
-            fs.readFile('savedata.txt', function (err, data) {
-                if (err) {
-                    return console.error(err);
-                }
-                console.log("Asynchronous read: " + data.toString());
-            });
+        User.create({
+            firstName: encodeURIComponent(request.params.first),
+            lastName: encodeURIComponent(request.params.last)
         });
 
-        reply("File Saved");
-    }
+        User.sync();
 
+        reply("saved first last");
+    }
 });
 
 server.route({
-
     method: 'GET',
-    path: '/savedata',
+    path: '/displayAll',
     handler: function (request, reply) {
-        console.log("Let's read newly written data");
-        var currentData = "";
-        fs.readFile('savedata.txt', function (err, data) {
-            if (err) {
-                return console.error(err);
-            }
-            currentData = JSON.parse(data.toString());
-            console.log("Asynchronous read: " + currentData);
 
-            reply.view('savedata', {
-                formresponse: currentData.monsterName,
+        //console.log(typeof(User.findAll()));
+
+
+        //        var displayAll = JSON.stringify(User.findAll({limit: 10}));
+        //        console.log(displayAll);
+
+        User.findAll().then(function (users) {
+            // projects will be an array of all Project instances
+            //console.log(users[0].firstName);
+
+            users.forEach(function (display) {
+
+                console.log(display.firstName);
             });
+
+
         });
 
+        reply("saved first last");
     }
 });
+
+
+server.route({
+    method: 'GET',
+    path: '/destroyAll',
+    handler: function (request, reply) {
+
+        User.drop();
+
+        reply("destroy all");
+    }
+});
+
 
 
 server.start((err) => {
