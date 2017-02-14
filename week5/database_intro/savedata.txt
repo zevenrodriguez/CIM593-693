@@ -1,1 +1,0 @@
-{"monsterName":"zeven","quarters":"cave","weapon":"club","message":"I am in the middle of eating...\r\n            "}
