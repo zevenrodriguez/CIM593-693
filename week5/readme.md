@@ -15,3 +15,7 @@ http://docs.sequelizejs.com/en/v3/docs/models-definition/
 
 
 http://sqlitebrowser.org/
+
+##Homework
+
+Create or use your form to add data into the database. Have one route to display all.
