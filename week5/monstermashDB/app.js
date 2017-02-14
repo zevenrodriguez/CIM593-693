@@ -9,6 +9,9 @@ const Handlebars = require('handlebars');
 
 const fs = require("fs");
 
+const Sequelize = require('sequelize');
+
+
 
 const server = new Hapi.Server({
     connections: {
@@ -23,6 +26,38 @@ const server = new Hapi.Server({
 server.connection({
     port: 3000
 });
+
+
+var sequelize = new Sequelize('db', 'username', 'password', {
+    host: 'localhost',
+    dialect: 'sqlite',
+
+    pool: {
+        max: 5,
+        min: 0,
+        idle: 10000
+    },
+
+    // SQLite only
+    storage: 'db.sqlite'
+});
+
+
+var Monster = sequelize.define('monster', {
+    monsterName: {
+        type: Sequelize.STRING
+    },
+    quarters: {
+        type: Sequelize.STRING
+    },
+    weapon: {
+        type: Sequelize.STRING
+    },
+    message: {
+        type: Sequelize.STRING
+    },
+});
+
 
 server.register([Blipp, Inert, Vision], () => {});
 
@@ -66,93 +101,34 @@ server.route({
     path: '/form',
     handler: function (request, reply) {
         var formresponse = JSON.stringify(request.payload);
-        //console.log(formresponse.length);
+        var parsing = JSON.parse(formresponse);
+        //console.log(parsing);
 
+        Monster.create(parsing).then(function (currentMonster) {
+            Monster.sync();
+            console.log("...syncing");
+            console.log(currentMonster);
+            return (currentMonster);
+        }).then(function (currentMonster) {
 
-        reply.view('formresponse', {
-            formresponse: formresponse
+            reply.view('formresponse', {
+                formresponse: currentMonster
+            });
         });
     }
-});
-
-server.route({
-
-    method: 'POST',
-    path: '/formJSON',
-    handler: function (request, reply) {
-        var jsonForm = JSON.stringify(request.payload);
-        console.log(jsonForm);
-        reply(jsonForm);
-    }
-
-
 });
 
 server.route({
     method: 'GET',
-    path: '/savefile',
-    handler: {
-        view: {
-            template: 'savefile'
-        }
-    }
-
-});
-
-
-server.route({
-
-    method: 'POST',
-    path: '/savefile',
+    path: '/createDB',
     handler: function (request, reply) {
-
-        var jsonForm = JSON.stringify(request.payload);
-        console.log(jsonForm);
-
-        console.log("Going to write into existing file");
-
-        fs.writeFile('savedata.txt', jsonForm, function (err) {
-            if (err) {
-                return console.error(err);
-            }
-
-            console.log("Data written successfully!");
-            console.log("Let's read newly written data");
-            fs.readFile('savedata.txt', function (err, data) {
-                if (err) {
-                    return console.error(err);
-                }
-                console.log("Asynchronous read: " + data.toString());
-            });
-        });
-
-        reply("File Saved");
-    }
-
-});
-
-server.route({
-
-    method: 'GET',
-    path: '/savedata',
-    handler: function (request, reply) {
-        console.log("Let's read newly written data");
-        var currentData = "";
-        fs.readFile('savedata.txt', function (err, data) {
-            if (err) {
-                return console.error(err);
-            }
-            currentData = JSON.parse(data.toString());
-            console.log("Asynchronous read: " + currentData);
-
-            reply.view('savedata', {
-                formresponse: currentData.monsterName,
-            });
-        });
-
+        // force: true will drop the table if it already exists
+        Monster.sync({
+            force: true
+        })
+        reply("Database Created")
     }
 });
-
 
 server.start((err) => {
 
