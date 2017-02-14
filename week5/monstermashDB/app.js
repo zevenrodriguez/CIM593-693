@@ -12,6 +12,7 @@ const fs = require("fs");
 const Sequelize = require('sequelize');
 
 
+
 const server = new Hapi.Server({
     connections: {
         routes: {
@@ -28,27 +29,33 @@ server.connection({
 
 
 var sequelize = new Sequelize('db', 'username', 'password', {
-  host: 'localhost',
-  dialect: 'sqlite',
+    host: 'localhost',
+    dialect: 'sqlite',
 
-  pool: {
-    max: 5,
-    min: 0,
-    idle: 10000
-  },
+    pool: {
+        max: 5,
+        min: 0,
+        idle: 10000
+    },
 
-  // SQLite only
-  storage: 'db.sqlite'
+    // SQLite only
+    storage: 'db.sqlite'
 });
 
 
-var User = sequelize.define('user', {
-  firstName: {
-    type: Sequelize.STRING
-  },
-  lastName: {
-    type: Sequelize.STRING
-  }
+var Monster = sequelize.define('monster', {
+    monsterName: {
+        type: Sequelize.STRING
+    },
+    quarters: {
+        type: Sequelize.STRING
+    },
+    weapon: {
+        type: Sequelize.STRING
+    },
+    message: {
+        type: Sequelize.STRING
+    },
 });
 
 
@@ -64,8 +71,6 @@ server.views({
     helpersPath: 'views/helpers',
     //partialsPath: 'views/partials'
 });
-
-
 
 
 server.route({
@@ -96,25 +101,34 @@ server.route({
     path: '/form',
     handler: function (request, reply) {
         var formresponse = JSON.stringify(request.payload);
-        //console.log(formresponse.length);
+        var parsing = JSON.parse(formresponse);
+        //console.log(parsing);
 
+        Monster.create(parsing).then(function (currentMonster) {
+            Monster.sync();
+            console.log("...syncing");
+            console.log(currentMonster);
+            return (currentMonster);
+        }).then(function (currentMonster) {
 
-        reply.view('formresponse', {
-            formresponse: formresponse
+            reply.view('formresponse', {
+                formresponse: currentMonster
+            });
         });
     }
 });
 
-
 server.route({
     method: 'GET',
-    path: '/addDB',
-    handler: function(request, reply){
-
-        reply("saved")
+    path: '/createDB',
+    handler: function (request, reply) {
+        // force: true will drop the table if it already exists
+        Monster.sync({
+            force: true
+        })
+        reply("Database Created")
     }
-})
-
+});
 
 server.start((err) => {
 

@@ -31,12 +31,14 @@ Handlebars.registerHelper('style', function (context, options) {
 });
 
 
-//Handlebars.registerHelper('list', function (context, options) {
-//        var ret = "<ul>";
-//
-//        for (var i = 0, j = context.length; i < j; i++) {
-//            ret = ret + "<li>" + options.fn(context[i]) + "</li>";
-//        }
-//
-//        return ret + "</ul>";
-//    });
+
+Handlebars.registerHelper('all', function (context, options) {
+    var ret = "";
+    var parsing = JSON.parse(context);
+    for (var i = 0; i < parsing.length; i++) {
+        ret = ret + options.fn(parsing[i]);
+        //console.log(parsing[i]);
+    }
+    //ret = context;
+    return ret;
+});

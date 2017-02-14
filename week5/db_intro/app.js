@@ -59,7 +59,7 @@ server.views({
     engines: {
         html: Handlebars
     },
-    path: 'views',
+    path: Path.join(__dirname, 'views'),
     layoutPath: 'views/layout',
     layout: 'layout',
     helpersPath: 'views/helpers',
@@ -88,6 +88,7 @@ server.route({
         }
     }
 });
+
 
 server.route({
 
@@ -125,6 +126,33 @@ server.route({
 
 server.route({
     method: 'GET',
+    path: '/destroyAll',
+    handler: function (request, reply) {
+
+        User.drop();
+
+        reply("destroy all");
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/destroyAll/{id}',
+    handler: function (request, reply) {
+
+
+        User.destroy({
+            where: {
+                id: encodeURIComponent(request.params.id)
+            }
+        });
+
+        reply("destroy user");
+    }
+});
+
+server.route({
+    method: 'GET',
     path: '/addDB/{first}/{last}',
     handler: function (request, reply) {
 
@@ -143,38 +171,62 @@ server.route({
     method: 'GET',
     path: '/displayAll',
     handler: function (request, reply) {
-
-        //console.log(typeof(User.findAll()));
-
-
-        //        var displayAll = JSON.stringify(User.findAll({limit: 10}));
-        //        console.log(displayAll);
-
         User.findAll().then(function (users) {
-            // projects will be an array of all Project instances
+            // projects will be an array of all User instances
             //console.log(users[0].firstName);
-
-            users.forEach(function (display) {
-
-                console.log(display.firstName);
+            var allUsers = JSON.stringify(users);
+            reply.view('dbresponse', {
+                dbresponse: allUsers
             });
-
-
         });
-
-        reply("saved first last");
     }
+});
+
+server.route({
+    method: 'GET',
+    path: '/update/{id}/{first}/{last}',
+    handler: function (request, reply) {
+
+        User.update({
+            firstName: encodeURIComponent(request.params.first),
+            lastName: encodeURIComponent(request.params.last)
+        }, {
+            where: {
+                id: encodeURIComponent(request.params.id)
+            }
+        });
+        reply("updated");
+
+    }
+
 });
 
 
 server.route({
     method: 'GET',
-    path: '/destroyAll',
+    path: '/find/{first}/{last}',
     handler: function (request, reply) {
+        var currentUser = "";
+        User.findOne({
 
-        User.drop();
+            where: {
+                firstName: encodeURIComponent(request.params.first),
+                lastName: encodeURIComponent(request.params.last)
 
-        reply("destroy all");
+            }
+
+
+        }).then(function (user) {
+            currentUser = JSON.stringify(user);
+            //console.log(currentUser);
+            currentUser = JSON.parse(currentUser)
+            reply.view('find', {
+                dbresponse: currentUser
+            });
+
+        });
+
+
     }
 });
 
