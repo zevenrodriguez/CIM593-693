@@ -16,10 +16,48 @@ body {
   margin-bottom: 25px;
 }
 
+/*nav change style*/
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {
   color: #fff;
   background-color: green;
 }
+
+.navbar-inverse,.navbar-collapse{
+background-color:#7B9A70;
+border-color:white;
+}
+
+.navbar>.container .navbar-brand{
+color:white;
+font-size:25px;
+}
+
+.navbar-nav{
+float:right;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+color:white;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover{
+background:#C4CDA9;
+color:#3C5C30;
+}
+
+.navbar-inverse .navbar-collapse{
+border-color:white;
+}
+
+.navbar-inverse .navbar-toggle{
+border-color:white;
+}
+/*nav change style ends*/
+
+
+
+
+
 
 #main{
   width:100%;

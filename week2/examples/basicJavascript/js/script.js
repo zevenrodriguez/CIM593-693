@@ -10,13 +10,7 @@ console.log(word + word1);
 //This will not work, you cannot subtract 2 words
 //console.log(word - word1);
 
-/*
-This
-is
-a
-long
-comment
-*/
+
 
 console.log("num: " + num);
 console.log(word + " " + word1);
