@@ -1,0 +1,13 @@
+<h1>Load New Info</h1>
+<div id="loadInfo"></div>
+
+<script>
+   var loadTo =  document.getElementById("loadInfo");
+    fetch('/loadFrom')
+        .then(function (response) {
+
+            console.log(response);
+            return response.blob();
+        })
+
+</script>
