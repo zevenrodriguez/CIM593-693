@@ -6,6 +6,10 @@ const Vision = require('vision');
 const Inert = require('inert');
 const Path = require('path');
 const Handlebars = require('handlebars');
+var Fetch = require('node-fetch');
+var FormData = require('form-data');
+
+
 
 const server = new Hapi.Server({
     connections: {
@@ -74,7 +78,48 @@ server.route({
     handler: function (request, reply) {
         console.log(request.payload.name);
         var name = encodeURIComponent(request.payload.name);
-        reply.view('postTo', {name: name}, {layout: 'none'});
+        reply.view('postTo', {
+            name: name
+        }, {
+            layout: 'none'
+        });
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/fetchFrom',
+    handler: function (request, reply) {
+
+        Fetch('http://localhost:3000/loadFrom').then(function (res) {
+            return res.text();
+        }).then(function (text) {
+            console.log(text);
+            reply.view('fetchfrom', {
+                text: text
+            });
+        });
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/fetchPost',
+    handler: function (request, reply) {
+
+        var formData = new FormData();
+        formData.append("name", "Zeven");
+
+        Fetch("http://localhost:3000/postTo", {
+            method: "POST",
+            body: formData
+        }).then(function (response) {
+            //console.log(response);
+            return response.text();
+        }).then(function (text) {
+            console.log(text);
+            reply.view('fetchfrom', {text: text});
+        });
     }
 });
 
