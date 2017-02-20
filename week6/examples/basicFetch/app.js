@@ -60,12 +60,25 @@ server.route({
 server.route({
     method: 'GET',
     path: '/loadFrom',
-    handler: {
-        view: {
-            template: 'loadfrom'
-        }
+    handler: function (request, reply) {
+        reply.view('loadfrom', null, {
+            layout: 'none'
+        });
     }
 });
+
+
+server.route({
+    method: 'POST',
+    path: '/postTo',
+    handler: function (request, reply) {
+        console.log(request.payload.name);
+        var name = encodeURIComponent(request.payload.name);
+        reply.view('postTo', {name: name}, {layout: 'none'});
+    }
+});
+
+
 
 server.start((err) => {
 
