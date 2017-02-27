@@ -226,6 +226,8 @@ server.route({
     }
 });
 
+//findAll returns an array of users, Uses helper to loop through array
+
 server.route({
     method: 'GET',
     path: '/displayAll',
@@ -243,6 +245,7 @@ server.route({
 
 
 
+//Find returns one user
 
 server.route({
     method: 'GET',
@@ -266,41 +269,7 @@ server.route({
     }
 });
 
-server.route({
-    method: 'GET',
-    path: '/findAll/{column}',
-    handler: function (request, reply) {
-        var column = encodeURIComponent(request.params.column);
-        var value = encodeURIComponent(request.params.values);
-        var searching = {};
-        searching[column] = value;
-        Monster.findAll({
-            where: searching
 
-        }).then(function (allUsers) {
-            console.log("number of items: " + allUsers.length);
-            reply(allUsers.length);
-        });
-    }
-});
-
-//server.route({
-//    method: 'GET',
-//    path: '/findAll/{column}/{values}',
-//    handler: function (request, reply) {
-//        var column = encodeURIComponent(request.params.column);
-//        var value = encodeURIComponent(request.params.values);
-//        var searching = {};
-//        searching[column] = value;
-//        Monster.findAll({
-//            where: searching
-//
-//        }).then(function (allUsers) {
-//            console.log("number of items: " + allUsers.length);
-//            reply(allUsers.length);
-//        });
-//    }
-//});
 
 server.route({
     method: 'GET',
@@ -317,6 +286,37 @@ server.route({
             console.log("number of items: " + allUsers.length);
             reply(allUsers.length);
         });
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/count/{column}/{values}',
+    handler: function (request, reply) {
+        var column = encodeURIComponent(request.params.column);
+        var value = encodeURIComponent(request.params.values);
+        var searching = {};
+        searching[column] = value;
+        Monster.count({
+            where: searching
+        }).then(function (count) {
+            console.log(count);
+            reply(count);
+        });
+    }
+});
+
+//Output
+
+server.route({
+    method: 'GET',
+    path: '/p5example',
+    handler: function(request, reply){
+
+        reply.view('p5example', null, {
+            layout: 'none'
+        });
+
     }
 });
 
