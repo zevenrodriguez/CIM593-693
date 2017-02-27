@@ -269,6 +269,38 @@ server.route({
     }
 });
 
+server.route({
+    method: 'GET',
+    path: '/countColumn/{column}',
+    handler: function (request, reply) {
+        var types = {};
+        var column = encodeURIComponent(request.params.column);
+        Monster.findAll().then(function (monsters) {
+            for (var monsterIndex in monsters) {
+                var currentValue = monsters[monsterIndex][column];
+                console.log(currentValue);
+                var inList = 0;
+                for (var typesKey in types) {
+                    if (currentValue == typesKey) {
+                        inList = 1;
+                    }
+                }
+                if (inList == 0) {
+                    types[currentValue] = 0;
+                    types[currentValue]++;
+                } else {
+                    types[currentValue]++;
+                }
+
+            }
+            return types;
+        }).then(function (types) {
+            console.log(types);
+        })
+    }
+
+});
+
 
 
 server.route({
@@ -311,7 +343,7 @@ server.route({
 server.route({
     method: 'GET',
     path: '/p5example',
-    handler: function(request, reply){
+    handler: function (request, reply) {
 
         reply.view('p5example', null, {
             layout: 'none'
