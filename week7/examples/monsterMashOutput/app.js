@@ -296,7 +296,8 @@ server.route({
             return types;
         }).then(function (types) {
             console.log(types);
-        })
+            reply(types);
+        });
     }
 
 });
@@ -351,6 +352,32 @@ server.route({
 
     }
 });
+
+server.route({
+    method: 'GET',
+    path: '/barChart',
+    handler: function (request, reply) {
+
+        reply.view('barchart', null, {
+            layout: 'none'
+        });
+
+    }
+});
+
+
+server.route({
+    method: 'GET',
+    path: '/pieChart',
+    handler: function (request, reply) {
+
+        reply.view('piechart', null, {
+            layout: 'none'
+        });
+
+    }
+});
+
 
 
 //Utilities
