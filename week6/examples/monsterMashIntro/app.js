@@ -206,6 +206,30 @@ server.route({
     }
 });
 
+server.route({
+    method: 'GET',
+    path: '/findAll/quarters/{item}',
+    handler: function (request, reply) {
+        Monster.findAll({
+            where: {
+                quarters: encodeURIComponent(request.params.item),
+            }
+        }).then(function (allUsers) {
+            console.log("the number of items", allUsers.length);
+            
+            var currentUser = "";
+            currentUser = JSON.stringify(allUsers);
+            //console.log(currentUser);
+            console.log(currentUser);
+            reply.view('dbresponse', {
+                dbresponse: currentUser
+            });
+
+        });
+    }
+});
+
+
 
 server.route({
     method: 'GET',
