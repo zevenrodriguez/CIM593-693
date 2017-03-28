@@ -1,5 +1,3 @@
-
-
 'use strict';
 
 const Hapi = require('hapi');
@@ -159,7 +157,7 @@ server.route({
     }
 });
 
-<<<<<<< HEAD
+
 server.route({
     method: 'GET',
     path: '/destroyAll',
@@ -185,6 +183,43 @@ server.route({
 
         reply().redirect("/displayAll");
     }
+});
+
+
+server.route({
+    method: 'GET',
+    path: '/update/{id}',
+    handler: function (request, reply) {
+        var id = encodeURIComponent(request.params.id);
+
+
+        reply.view('updatemonster', {
+            routeId: id
+        });
+    }
+
+});
+
+
+server.route({
+    method: 'POST',
+    path: '/update/{id}',
+    handler: function (request, reply) {
+        var id = encodeURIComponent(request.params.id);
+        var formresponse = JSON.stringify(request.payload);
+        var parsing = JSON.parse(formresponse);
+        //console.log(parsing);
+
+        Monster.update(parsing, {
+            where: {
+                id: id
+            }
+        });
+
+        reply().redirect("/displayAll");
+
+    }
+
 });
 
 server.route({
@@ -215,65 +250,17 @@ server.route({
     handler: function (request, reply) {
         Monster.findAll({
             where: {
-                quarters: encodeURIComponent(request.params.item),
+                quarters: encodeURIComponent(request.params.item)
             }
         }).then(function (allUsers) {
-            console.log("the number of items", allUsers.length);
-            
-            var currentUser = "";
-            currentUser = JSON.stringify(allUsers);
-            //console.log(currentUser);
-            console.log(currentUser);
-            reply.view('dbresponse', {
-                dbresponse: currentUser
-            });
-
+            console.log("number of item" + allUsers.length);
+            reply(allUsers.length);
         });
     }
-});
+})
 
 
 
-server.route({
-    method: 'GET',
-    path: '/update/{id}',
-    handler: function (request, reply) {
-        var id = encodeURIComponent(request.params.id);
-
-
-        reply.view('updatemonster', {
-            routeId: id
-        });
-    }
-
-});
-
-server.route({
-    method: 'POST',
-    path: '/update/{id}',
-    handler: function (request, reply) {
-        var cm = "";
-        var id = encodeURIComponent(request.params.id);
-        var formresponse = JSON.stringify(request.payload);
-        var parsing = JSON.parse(formresponse);
-        //console.log(parsing);
-
-        Monster.update(parsing, {
-            where: {
-                id: id
-            }
-        });
-
-        reply().redirect("/displayAll");
-
-    }
-
-});
-
-
-
-=======
->>>>>>> zevenrodriguez/master
 
 server.start((err) => {
 
