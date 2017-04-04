@@ -7,6 +7,15 @@ const Inert = require('inert');
 const Path = require('path');
 const Handlebars = require('handlebars');
 
+var fs = require('fs');
+var imgur = require('imgur');
+
+var secret = require('./secret.js');
+
+
+imgur.setCredentials(secret["email"], secret['password'], secret['client_id'], secret["client_secret"]);
+imgur.setAPIUrl('https://api.imgur.com/3/');
+
 
 const server = new Hapi.Server({
     connections: {
@@ -51,11 +60,31 @@ server.route({
 
     method: 'POST',
     path: '/imageUpload',
+    config: {
+
+        payload: {
+            output: 'file',
+            parse: true,
+            //allow: 'multipart/form-data'
+        }
+    },
     handler: function (request, reply) {
-//        var formresponse = JSON.stringify(request.payload);
-//        var parsing = JSON.parse(formresponse);
-        console.log(request.payload["file"]);
-        reply.view('imageuploaded', {});
+        var data = request.payload;
+        console.log(data);
+        if (data["fileUpload"].filename != "") {
+            var albumId = 'AQUeT';
+            imgur.uploadFile(data["fileUpload"].path, albumId)
+                .then(function (json) {
+                    console.log(json.data.link);
+                    reply.view('imageuploaded', {uploaded: json.data.link})
+                })
+                .catch(function (err) {
+                    console.error(err.message);
+                });
+
+        }else{
+            reply().redirect("/");
+        };
     }
 });
 
