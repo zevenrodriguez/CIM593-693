@@ -64,54 +64,27 @@ server.route({
         }
     },
     handler: function (request, reply) {
-        var data = request.payload;
-       // if (data.file) {
-            var name = data.file.filename;
-            var path = __dirname + "/uploads/" + name;
-            var file = fs.createWriteStream(path);
 
-            file.on('error', function (err) {
-                console.error(err)
+        var data = request.payload;
+        var name = data["fileUpload"].filename;
+        console.log(data);
+        if (name != "") {
+
+            fs.readFile(data["fileUpload"].path, function (err, data) {
+                var path = __dirname + "/public/uploads/" + name;
+                fs.writeFile(path, data, name, function (err) {
+
+                    //need to fix bug
+//                    reply.view('imageuploaded', {
+//                        uploaded: str(name)
+//                    })
+                    console.log("Saved");
+                });
             });
 
-            data.file.pipe(file);
-
-            data.file.on('end', function (err) {
-                    var ret = {
-                        filename: data.file.hapi.filename,
-                        headers: data.file.hapi.headers
-                    }
-                    reply(JSON.stringify(ret));
-                })
-                //        console.log(data);
-                //        if (data["fileUpload"].filename != "") {
-                //            var name = data["fileUpload"].filename;
-                //            console.log(name);
-                //            var path = __dirname + "/public/uploads/" + name;
-                //            var file = fs.createWriteStream(path);
-                //
-                //            file.on('error', function (err) {
-                //                console.error(err)
-                //            });
-                //
-                //            data.file.pipe(file);
-                //
-                ////            file.on('finish', function () {
-                ////                console.log('file has been written');
-                ////                var uploadInfo = {
-                ////                        filename: data["fileUpload"].filename,
-                ////                        headers: data["fileUpload"].headers,
-                ////                        link: path
-                ////                    }
-                ////                    //reply(JSON.stringify(ret));
-                ////
-                ////                reply.view('imageuploaded', {
-                ////                    uploaded: uploadInfo
-                ////                })
-                ////            });
-
-
-       // };
+        } else {
+            reply().redirect("/");
+        };
     }
 });
 
