@@ -15,21 +15,21 @@ var client = new Twit({
 });
 
 
-/*
+
 client.get('search/tweets', {
     q: 'node.js',
     count: "1"
 }, function (error, tweets, response) {
 
     //console.log(tweets.statuses);
-    console.log(tweets["statuses"][0]["text"]);
-    console.log(tweets["statuses"][0]["user"]["screen_name"]);
-    console.log(tweets["statuses"][0]["user"]["url"]);
+    //console.log(tweets["statuses"][0]["text"]);
+    //console.log(tweets["statuses"][0]["user"]["screen_name"]);
+    //console.log(tweets["statuses"][0]["user"]["url"]);
     //console.log(tweets["statuses"][0]["user"]);
 
 
 });
-*/
+
 
 //search for 5 movie tweets not scary with positive attitude
 
@@ -62,7 +62,7 @@ client.get('search/tweets', {
         console.log(tweets["statuses"][i]["text"]);
         console.log(tweets["statuses"][i]["user"]["screen_name"]);
         console.log(tweets["statuses"][i]["user"]["url"]);
-        console.log(tweets["statuses"][i]["user"]["created_at"]);
+        console.log(tweets["statuses"][i]["created_at"]);
         console.log("");
     }
 });
@@ -82,12 +82,12 @@ client.get('search/tweets', {
         console.log(tweets["statuses"][i]["text"]);
         console.log(tweets["statuses"][i]["user"]["screen_name"]);
         console.log(tweets["statuses"][i]["user"]["url"]);
-        console.log(tweets["statuses"][i]["user"]["created_at"]);
+        console.log(tweets["statuses"][i]["created_at"]);
         console.log("");
     }
 })
-*/
 
+*/
 ////Finding tweets based off of geo location and date
 
 /*
@@ -101,9 +101,16 @@ client.get('search/tweets', {
         console.log(tweets["statuses"][i]["text"]);
         console.log(tweets["statuses"][i]["user"]["screen_name"]);
         console.log(tweets["statuses"][i]["user"]["url"]);
-        console.log(tweets["statuses"][i]["user"]["created_at"]);
+        console.log(tweets["statuses"][i]["created_at"]);
         console.log("");
     }
 });
 
+
 */
+
+var stream = client.stream('statuses/filter', { track: 'mango' })
+
+stream.on('tweet', function (tweet) {
+  console.log(tweet.text)
+})

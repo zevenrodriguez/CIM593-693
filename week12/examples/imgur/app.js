@@ -76,6 +76,7 @@ server.route({
             imgur.uploadFile(data["fileUpload"].path, albumId)
                 .then(function (json) {
                     console.log(json.data.link);
+                    //At this point save to database
                     reply.view('imageuploaded', {uploaded: json.data.link})
                 })
                 .catch(function (err) {
