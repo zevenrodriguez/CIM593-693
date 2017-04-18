@@ -65,7 +65,7 @@ http://jaskokoyn.com/category/programming/javascript/nodejs/
 https://github.com/hyprstack/handlebars-tutorial-hapijs
 
 
-##Homework
+## Homework
 
 Create an interactive story or game. The story must have a beginning and middle with multiple choices, then a resolution. Create an application with multiple routes and at least one helper.
 

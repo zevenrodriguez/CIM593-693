@@ -20,6 +20,6 @@ heroku pg:credentials DATABASE
 heroku logs
 
 
-#Homework
+# Homework
 
 Upload midterm assignment

@@ -1,5 +1,7 @@
 # Welcome to Dynamic Data
 
+## Final Day - 5/9/2017, Tuesday 2:00PM - 4:30PM
+
 ## [Syllabus](https://github.com/zevenrodriguez/CIM593-693/blob/master/files/CIM593-693-S17-Dynamic%20Data.pdf)
 
 ### [Week 1 - Introduction to Web (Jan 17th)](https://github.com/zevenrodriguez/CIM593-693/tree/master/week1)

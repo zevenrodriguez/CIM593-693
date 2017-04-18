@@ -151,7 +151,7 @@ This will save your changes
 
 If configured correctly, will upload your changes to github.
 
-#Homework
+# Homework
 
 * Create a Repository
  * Name it: Dynamic Data

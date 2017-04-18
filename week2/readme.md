@@ -18,7 +18,7 @@
 
 [Getting started with javascript DOM](https://github.com/zevenrodriguez/CIM593-693/tree/master/week2/examples/basicJavascript)
 
-##Homework
+## Homework
 
 * Create a week2 folder
  * Continue with your form

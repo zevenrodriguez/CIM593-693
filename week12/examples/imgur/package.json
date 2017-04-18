@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "blipp": "^2.3.0",
+    "flickr-upload": "^1.0.0",
     "handlebars": "^4.0.6",
     "hapi": "^16.1.0",
     "imgur": "^0.2.0",
